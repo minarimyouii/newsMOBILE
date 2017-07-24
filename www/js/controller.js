@@ -21,6 +21,9 @@ angular.module('ionicGoal.controllers',  [])
 // }
 
 .controller('channel', function($scope, $http, $state, $rootScope, $cordovaDialogs) {
+
+  $scope.channellist = 
+
   $scope.bookmarked = function(){
     console.log("asd");
   }
@@ -50,13 +53,7 @@ angular.module('ionicGoal.controllers',  [])
           method: 'GET'
           })
           .then(function(response){
-          $scope.channel = response['data']['articles'];
-          $scope.channelview = {
-            author:['data']['articles']['author'],
-            title:['data']['articles']['title'],
-            description:['data']['articles']['description']
-          };
-          console.log(response['data']);
+          $scope.mtvnews = response['data']['articles'];
           })
 
         $http({
@@ -64,9 +61,16 @@ angular.module('ionicGoal.controllers',  [])
           method: 'GET'
           })
           .then(function(response){
-          $scope.channels = response['data']['articles'];
-          console.log(response['data']);
+          $scope.espn = response['data']['articles'];
           })
+
+          $http({
+            url : 'https://newsapi.org/v1/articles?source=the-wall-street-journal&sortBy=top&apiKey=c9e03b98399444c9a4e1f1cf36e56419',
+            method: 'GET'
+            })
+            .then(function(response){
+            $scope.twsj = response['data']['articles'];
+            })
 
 
       var arrayA = localStorage.getItem("goalname");
