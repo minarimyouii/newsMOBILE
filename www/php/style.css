@@ -1,0 +1,82 @@
+body{
+	font-size:19px;
+}
+table{
+	width: 50%;
+	margin: 30px auto;
+	border-collapse: collapse;
+	text-align: left;
+}
+tr{
+	border-bottom: 1px solid #cbcbcb;
+}
+
+th,td{
+	border:none;
+	height:30px;
+	padding:2px;
+}
+tr:hover{
+	background: #F5F5F5;
+}
+
+form{
+	margin-top: 10px;
+	text-align: left;
+}
+.button{
+	margin-right: 10px;
+}
+.black{
+	background-color: #FFFF8D;
+	border-color: #FFFF8D;
+}
+.mar{
+	margin: 5px, 0px, 0px 0px;
+
+}
+.boxshad{
+	box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3); 
+}
+input *[placeholder]{
+ color: #000;
+}
+.poly{
+	background-image: url("poly.jpg");
+}
+
+.bg{
+	background-size: 100%;
+	background-image: url(img/polylime.jpg);
+	height: 230px;
+}
+.tabs-goal-customized > .tabs, .tabs.tabs-goal-customized {
+  border-color: #8BC34A;
+  background-color: #8BC34A;
+  background-image: linear-gradient(0deg, #8BC34A, #8BC34A 100%, transparent 100%);
+  color: #fff; 
+  height: 10%;}
+  .tabs-goal-customized > .tabs .tab-item .badge, .tabs.tabs-goal-customized .tab-item .badge {
+    background-color: #8BC34A;
+    color: #fff; }
+.margin-card{
+	margin-bottom: 50px;
+}
+.bguser{
+	background-color: #388E3C;
+	padding-bottom: 47vh;
+	padding-top: 1vh;
+}
+.bgusersignup{
+	background-color: #388E3C;
+	padding-bottom: 45vh;
+	padding-top: 1vh;
+}
+.bghome{
+	padding-top: 1vh;
+	padding-bottom: auto;
+	margin-bottom: auto;
+}
+.trans{
+	background-color: transparent;
+}

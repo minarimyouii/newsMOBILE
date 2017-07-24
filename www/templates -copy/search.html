@@ -1,0 +1,42 @@
+<div class="bar bar-header bar-goal">
+    <h1 class="title" style="color: #000;">Search</h1>
+  </div>
+<div class="tabs tabs-striped tabs-goal">
+
+        <a class="tab-item" href="#/app/home" style="color: #4bb3d5;">
+        </a>
+        <a class="tab-item active" href="#/app/search" style="color: #4bb3d5;">
+        <i class="icon ion-search" style="color: #4bb3d5;"></i>
+        </a>
+        <a class="tab-item" href="#/app/about" style="color: #4bb3d5;">
+            <i class="icon ion-information-circled" style="color: #4bb3d5;"></i>
+        </a>
+</div>
+
+<ion-view>
+  <ion-content class=""><br><br>
+    <div ng-controller="save">
+      <form data-ng-submit="addname()" class="todo-form">
+        <div class="list list-inset boxshad">
+          <label class="item item-input">
+            <i class="icon ion-search placeholder-icon" style="color:#000"></i>
+            <input type="text" placeholder="Search" value="How to make a mobile app">
+          </label>
+        </div>
+        <div class="card">
+          <div class="item item-text-wrap" style="color:#000;">
+            <b>The important part is to get started</b><br><br>
+            Step 1: Get an idea or a problem. ...<br>
+            Step 2: Identify the need. ...<br>
+            Step 3: Lay out the flow and features. ...<br>
+            Step 4: Remove non-core features. ...<br>
+            Step 5: Put design first. ...<br>
+            Step 6: Hire a designer/developer. ...<br>
+            Step 7: Create developer accounts. ...<br>
+            Step 8: Integrate analytics.<br>
+          </div>
+        </div>
+      </form>
+    </div>
+  </ion-content>
+</ion-view>

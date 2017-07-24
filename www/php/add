@@ -1,0 +1,7 @@
+		$name = $_POST['name'];
+		$address = $_POST['address'];
+
+		$query = "INSERT INTO crud (name, address) VALUES ('$name','$address')";
+		mysqli_query($db, $query);
+		$_SESSION['msg'] = "Address Saved";
+		header('location:index.html'); //redirect to headerlocation after insert

@@ -1,0 +1,48 @@
+<div class="bar bar-header bar-goal">
+  <h1 class="title" style="margin-top: 2%; text-align:left; color:#fff; font-size:115%;">Home</h1>
+  <!-- <button class="button button-clear button-large button-dark" type="submit" name="save" style="float:right; margin-top: 2%;"><i class="icon ion-plus-circled"></i></button> -->
+</div>
+
+    <div class="tabs tabs-striped tabs-goal">
+
+        <a class="tab-item active" href="#/app/home" style="color: #4bb3d5;">
+        <i class="icon ion-home" style="color: #212121;"></i>
+        </a>
+        <a class="tab-item" href="#/app/search" style="color: #4bb3d5;">
+        <i class="icon ion-search" style="color: #212121;"></i>
+        </a>
+        <a class="tab-item" href="#/app/about" style="color: #4bb3d5; ">
+            <i class="icon ion-information-circled" style="color: #212121;"></i>
+        </a>
+
+</div>
+<ion-view ng-controller="save">
+  <ion-content class=""><br><br><br>
+
+
+    <div class="list">
+      <form data-ng-submit="addname()" class="todo-form">
+                <li class="item item-button-right" data-ng-repeat="x in readgoal" style="color:#000;">
+                  {{x['goalname']}}
+                    <a ng-click="nextPage($index)" class="button button-clear icon ion-chevron-right" style="color:#000;"></a>
+                </li>
+
+                <label class="item item-input">
+                  <input type="text" placeholder="What is your goal?" id="addGoal" ng-model="addGoal" required>
+                  <button class="button button-clear button-large button-stable" type="submit" name="save"><i class="icon ion-plus-circled"></i></button>
+                </label>
+            <!-- <button class="button button-outline button-goal" type="submit" name="update" class="btn">Update</button> -->
+      </form>
+    
+    </div>
+
+    <!-- #testModal -->
+<!--     <div class="testmodal">
+      <button  -->
+
+
+<!--     <progress max="100" >
+
+    </progress> -->
+  </ion-content>
+</ion-view>
