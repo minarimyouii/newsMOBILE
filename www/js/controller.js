@@ -2,9 +2,9 @@ angular.module('ionicGoal.controllers',  [])
 // .controller('TodoController', function($scope){
 //   $scope.saved = localStorage.getItem('musics');
 //   $scope.musics = (localStorage.getItem('musics')!=null)? JSON.parse($scope.saved):[{title:'Music',done:false}];
-  
+
 //   localStorage.setItem('musics', JSON.stringify($scope.musics));
-  
+
 //   $scope.addRoom = function(){
 //   var music = $scope.roomtype;
 //     $scope.musics.push({
@@ -14,19 +14,26 @@ angular.module('ionicGoal.controllers',  [])
 //     $scope.roomtype = 'Music';
 //     localStorage.setItem('musics', JSON.stringify($scope.musics));
 //   };
-  
+
 // $scope.remove = function(index){
 //   $scope.readgoal.splice(index,1)
 //   localStorage.setItem('goalname', JSON.stringify($scope.arrayA));
 // }
 
 .controller('channel', function($scope, $http, $state, $rootScope, $cordovaDialogs) {
+  $scope.bookmarked = function(){
+    console.log("asd");
+  }
 
-  $scope.beeps = function(){
-    // beep 3 times
+  $scope.alert = function(){
+  console.log("beep");
   $cordovaDialogs.beep(3);
   $scope.action = "Beep";
-  console.log("beep");
+
+  }
+
+  $scope.beeps = function(){
+
   }
 
 
@@ -60,7 +67,7 @@ angular.module('ionicGoal.controllers',  [])
           $scope.channels = response['data']['articles'];
           console.log(response['data']);
           })
-    
+
 
       var arrayA = localStorage.getItem("goalname");
       if(arrayA == null || arrayA == '' || arrayA == 'null'){
@@ -106,7 +113,7 @@ angular.module('ionicGoal.controllers',  [])
 })
 
 .controller('addStepPage', function($scope, $http, $state){
-  
+
   var idtitle = localStorage.getItem("id_details");
   var arrayStep = localStorage.getItem("goalname");
   if(arrayStep == null || arrayStep == '' || arrayStep == 'null'){
@@ -180,10 +187,9 @@ angular.module('ionicGoal.controllers',  [])
 //       method:"GET"
 //     })
 //     .then(function(response){
-      
+
 
 //       $scope.readgoal = response['data'];
 //     })
 
 // },500);
-
