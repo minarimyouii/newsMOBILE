@@ -34,10 +34,15 @@ angular.module('ionicGoal.controllers',  [])
   }
   })
 
+
   $scope.pinNews = function(author, title, publishedAt, urlToImage, url){
 
-    $cordovaDialogs.beep(1);
-    $scope.action = "Beep";
+    if(localStorage.getItem('pinnedNews') == null || localStorage.getItem('pinnedNews') == ""){
+      var newsArray = [];
+    }
+    else{
+      var newsArray = JSON.parse(localStorage.getItem('pinnedNews'));
+    }
 
   var data = {
     'author':author,
@@ -49,6 +54,9 @@ angular.module('ionicGoal.controllers',  [])
   newsArray.push(data);
   localStorage.setItem('pinnedNews', JSON.stringify(newsArray));
   var a = JSON.parse(localStorage.getItem('pinnedNews'));
+
+  $cordovaDialogs.beep(1);
+  $scope.action = "Beep";
 
   console.log(a);
   }
