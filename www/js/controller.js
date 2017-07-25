@@ -36,6 +36,9 @@ angular.module('ionicGoal.controllers',  [])
 
   $scope.pinNews = function(author, title, publishedAt, urlToImage, url){
 
+    $cordovaDialogs.beep(1);
+    $scope.action = "Beep";
+
   var data = {
     'author':author,
     'title':title,
