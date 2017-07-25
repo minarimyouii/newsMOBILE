@@ -22,7 +22,33 @@ angular.module('ionicGoal.controllers',  [])
 
 .controller('channel', function($scope, $http, $state, $rootScope, $cordovaDialogs) {
 
-  $scope.channellist = 
+  $scope.$on('$ionicView.beforeEnter', function(){
+
+  if(localStorage.getItem('pinnedNews') == null || localStorage.getItem('pinnedNews') == ""){
+    var newsArray = [];
+    $scope.newsList = [];
+  }
+  else{
+    var newsArray = JSON.parse(localStorage.getItem('pinnedNews'));
+    $scope.newsList = newsArray;
+  }
+  })
+
+  $scope.pinNews = function(author, title, publishedAt, urlToImage, url){
+
+  var data = {
+    'author':author,
+    'title':title,
+    'publishedAt':publishedAt,
+    'urlToImage':urlToImage,
+    'url':url
+  }
+  newsArray.push(data);
+  localStorage.setItem('pinnedNews', JSON.stringify(newsArray));
+  var a = JSON.parse(localStorage.getItem('pinnedNews'));
+
+  console.log(a);
+  }
 
   $scope.bookmarked = function(){
     console.log("asd");
@@ -30,7 +56,7 @@ angular.module('ionicGoal.controllers',  [])
 
   $scope.alert = function(){
   console.log("beep");
-  $cordovaDialogs.beep(3);
+  $cordovaDialogs.beep(1);
   $scope.action = "Beep";
 
   }

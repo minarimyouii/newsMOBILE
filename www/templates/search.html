@@ -9,12 +9,28 @@
       </div>
     </div>
 
-    <ion-list>
-      <ion-item ng-repeat="n in channellist">
-        Hello, {{n.cname}}!
-      </ion-item>
-    </ion-list>
+    <div class="list card" ng-repeat="x in newsList | filter:search | orderBy: '-publishedAt'">
 
-    <!--<button class="button button-assertive" ng-click="alert()"> beep  </button> -->
+
+      <div class="item item-avatar">
+        <img src="http://transgeninsight.com/modules/blog/dataimages/IMG_993884-9F046C-D96B27-8186CF-C1D1AE-F2B9BB.png">
+        <h2>{{x.author}}</h2>
+        <p>{{x.title}}</p>
+        <p>{{x.publishedAt}}</p>
+      </div>
+
+      <div class="item item-image">
+        <img src="{{x.urlToImage}}">
+      </div>
+
+      <a class="item item-icon-left calm" href="{{x.url}}">
+        <i class="icon ion-more ion-icon-small"></i>
+        Read Article
+      </a>
+
+    </div>
+    <br><br><br>
+
+    <!-- <button class="button button-assertive" ng-click="alert()"> beep  </button> -->
   </ion-content>
 </ion-view>
