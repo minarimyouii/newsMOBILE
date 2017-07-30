@@ -5299,8 +5299,7 @@ a.item-content {
   position: relative;
   padding-top: 1px;
   padding-bottom: 1px;
-  padding-left: 0;
-  margin-bottom: 20px; }
+  padding-left: 0;}
 
 .list:last-child {
   margin-bottom: 0px; }
