@@ -1,15 +1,10 @@
 <ion-view ng-controller="channel">
   <ion-content>
-    <div class="bg">
-      <br> <div class="list-borderless list-inset pos">
-        <label class="item item-input item-input-customized">
-          <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Search" ng-model="search">
-        </label>
-      </div>
-    </div>
+    <div class="bar bar-header bar-goal" >
+      <h1 class="title" style="color: #212121; margin-top:3%;">Read Later List</h1>
+    </div><br><br><br>
 
-    <div class="list card" ng-repeat="x in newsList | filter:search | orderBy: '-publishedAt'">
+    <div class="list card" ng-repeat="x in newsList | filter:search| orderBy: '-publishedAt'">
 
 
       <div class="item item-avatar">
@@ -27,6 +22,11 @@
         <i class="icon ion-more ion-icon-small"></i>
         Read Article
       </a>
+      <button class="item item-icon-left calm" ng-click="delete($index)" >
+        <i class="icon ion-close-round icon-small" style="font-size18px;"></i>
+        Remove
+      </button>
+
 
     </div>
     <br><br><br>

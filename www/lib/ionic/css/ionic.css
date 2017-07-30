@@ -3104,15 +3104,15 @@ a.subdued {
     .bar.bar-calm.bar-footer {
       background-image: linear-gradient(180deg, #0a9ec7, #0a9ec7 50%, transparent 50%); }
 .bar.bar-goal {
-    border-color: #00BCD4;
-    background-color: #00BCD4;
-    background-image: linear-gradient(#00BCD4, #00BCD4, #00BCD4  100%, transparent 100%);
-    color: #26C6DA; 
+    border-color: #628a34;
+    background-color: #628a34;
+    background-image: linear-gradient(#628a34, #628a34, #628a34  100%, transparent 100%);
+    color: #26C6DA;
     height: 10%; }
 
     .bar.bar-goal .title {
       color: #F5F5F5; }
-      
+
     .bar.bar-goal.bar-footer {
       background-image: linear-gradient(180deg, #0a9ec7, #0a9ec7 50%, transparent 75%); }
   .bar.bar-assertive {
@@ -3573,7 +3573,7 @@ a.subdued {
   border-color: #00BCD4;
   background-color: #00BCD4;
   background-image: linear-gradient(0deg, #00BCD4, #00BCD4 100%, transparent 100%);
-  color: #fff; 
+  color: #fff;
   height: 10%;}
   .tabs-goal > .tabs .tab-item .badge, .tabs.tabs-goal .tab-item .badge {
     background-color: #00BCD4;
@@ -5339,7 +5339,7 @@ a.item-content {
   box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3); }
   .card .item {
     border-left: 0;
-    border-right: 0; 
+    border-right: 0;
     border-color:#fff;
     background-color: #fff; }
   .card .item:first-child {
@@ -5356,7 +5356,7 @@ a.item-content {
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.5); }
   .cardbox .item {
     border-left: 0;
-    border-right: 0; 
+    border-right: 0;
     border-color:#FFFF8D;
     background-color: #FFFF8D; }
   .card .item:first-child {

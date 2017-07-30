@@ -1,0 +1,39 @@
+<ion-view ng-controller="channel">
+  <ion-content>
+   <div>
+
+    <div class="list list-inset" >
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Search" ng-model="search">
+        </label>
+    </div>
+
+    <div class="list card" ng-repeat="z in twsj | filter:search | orderBy: '-publishedAt'">
+
+
+      <div class="item item-avatar">
+        <img src="https://ore.wsj.net/fp/assets/images/ico/WSJ_facebook.png">
+        <h2>{{z.author}}</h2>
+        <p>{{z.title}}</p>
+        <p>{{z.publishedAt}}</p>
+      </div>
+
+      <div class="item item-image">
+        <img src="{{z.urlToImage}}">
+      </div>
+
+      <a class="item item-icon-left calm" href="{{z.url}}">
+        <i class="icon ion-more ion-icon-small"></i>
+        Read article
+      </a>
+      <button class="item item-icon-left calm" ng-click="pinNews(z.author, z.title, z.publishedAt, z.urlToImage, z.url)" >
+        <i class="icon ion-pin ion-icon-small" style="font-size18px;"></i>
+      </button>
+
+    </div>
+
+    <br><br><br>
+  </div>
+  </ion-content>
+</ion-view>

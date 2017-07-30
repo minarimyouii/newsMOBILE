@@ -1,110 +1,20 @@
 <ion-view ng-controller="channel">
   <ion-content>
    <div class="bghome">
-    <div class="list list-inset pos">
-        <label class="item item-input item-input-customized">
-          <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Search" ng-model="search">
-        </label>
-    </div>
-
-
-    <div class="list-borderless padding">
-      <div class="item item-avatar">
-        <img src="http://transgeninsight.com/modules/blog/dataimages/IMG_993884-9F046C-D96B27-8186CF-C1D1AE-F2B9BB.png" alt="">
-        <h2>MTV News</h2>
-      </div>
-    </div>
-
-
-    <div class="list card" ng-repeat="x in mtvnews track by $index | filter:search | orderBy: '-publishedAt'">
-
-
-      <div class="item item-avatar">
-        <img src="http://transgeninsight.com/modules/blog/dataimages/IMG_993884-9F046C-D96B27-8186CF-C1D1AE-F2B9BB.png">
-        <h2>{{x.author}}</h2>
-        <p>{{x.title}}</p>
-        <p>{{x.publishedAt}}</p>
-      </div>
-
-      <div class="item item-image">
-        <img src="{{x.urlToImage}}">
-      </div>
-
-      <a class="item item-icon-left calm" href="{{x.url}}">
-        <i class="icon ion-more ion-icon-small"></i>
-        Read Article
-      </a>
-      <button class="item item-icon-left calm" ng-click="pinNews(x.author, x.title, x.publishedAt, x.urlToImage, x.url)" >
-        <i class="icon ion-pin ion-icon-small" style="font-size18px;"></i>
-      </button>
-
+   <br><br>
+    <div class="animation-target">
+      <a ui-sref="app.mtvnews"><img src = "../php/img/mtvnewsshaded.png" height="155" width="350"></a>
 
     </div>
 
-    <div class="list-borderless padding">
-      <div class="item item-avatar">
-        <img src="https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/052016/untitled-1_242.png?itok=vy3l2HxD" alt="">
-        <h2>ESPN</h2>
-      </div>
-    </div>
+   <div class="animation-target">
+     <a ui-sref="app.espn"><img src = "../php/img/espnshaded.png" height="155" width="350"></a>
+   </div>
 
-    <div class="list card" ng-repeat="y in espn track by $index | filter:search | orderBy: '-publishedAt'">
-
-
-      <div class="item item-avatar">
-        <img src="https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/052016/untitled-1_242.png?itok=vy3l2HxD">
-        <h2>{{y.author}}</h2>
-        <p>{{y.title}}</p>
-        <p>{{y.publishedAt}}</p>
-      </div>
-
-      <div class="item item-image">
-        <img src="{{y.urlToImage}}">
-      </div>
-
-      <a class="item item-icon-left calm" href="{{y.url}}">
-        <i class="icon ion-more ion-icon-small"></i>
-        Read article
-      </a>
-      <button class="item item-icon-left calm" ng-click="pinNews(y.author, y.title, y.publishedAt, y.urlToImage, y.url)" >
-        <i class="icon ion-pin ion-icon-small" style="font-size18px;"></i>
-      </button>
-
-    </div>
-
-    <div class="list-borderless padding">
-      <div class="item item-avatar">
-        <img src="https://ore.wsj.net/fp/assets/images/ico/WSJ_facebook.png" alt="">
-        <h2>The Wall Street Journal</h2>
-      </div>
-    </div>
-
-    <div class="list card" ng-repeat="z in twsj track by $index | filter:search | orderBy: '-publishedAt'">
-
-
-      <div class="item item-avatar">
-        <img src="https://ore.wsj.net/fp/assets/images/ico/WSJ_facebook.png">
-        <h2>{{z.author}}</h2>
-        <p>{{z.title}}</p>
-        <p>{{z.publishedAt}}</p>
-      </div>
-
-      <div class="item item-image">
-        <img src="{{z.urlToImage}}">
-      </div>
-
-      <a class="item item-icon-left calm" href="{{z.url}}">
-        <i class="icon ion-more ion-icon-small"></i>
-        Read article
-      </a>
-      <button class="item item-icon-left calm" ng-click="pinNews(z.author, z.title, z.publishedAt, z.urlToImage, z.url)" >
-        <i class="icon ion-pin ion-icon-small" style="font-size18px;"></i>
-      </button>
-
-    </div>
-
-    <br><br><br>
+  <div class="animation-target">
+    <a ui-sref="app.wsj"><img src = "../php/img/wsjshaded.png" height="155" width="345"></a>
+  </div>
+  <br><br><br>
   </div>
   </ion-content>
 </ion-view>

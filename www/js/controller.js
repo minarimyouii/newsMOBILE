@@ -1,4 +1,4 @@
-angular.module('ionicGoal.controllers',  [])
+angular.module('ionicGoal.controllers',  ['ionic','ngCordova','ngCordova.plugins.localNotification','ngCordova.plugins'])
 // .controller('TodoController', function($scope){
 //   $scope.saved = localStorage.getItem('musics');
 //   $scope.musics = (localStorage.getItem('musics')!=null)? JSON.parse($scope.saved):[{title:'Music',done:false}];
@@ -20,10 +20,11 @@ angular.module('ionicGoal.controllers',  [])
 //   localStorage.setItem('goalname', JSON.stringify($scope.arrayA));
 // }
 
-.controller('channel', function($scope, $http, $state, $rootScope, $cordovaDialogs) {
+.controller('channel', function($scope, $http, $state, $rootScope, $cordovaDialogs, $ionicPopup) {
 
   $scope.$on('$ionicView.beforeEnter', function(){
 
+// add to Read Later List
   if(localStorage.getItem('pinnedNews') == null || localStorage.getItem('pinnedNews') == ""){
     var newsArray = [];
     $scope.newsList = [];
@@ -33,17 +34,14 @@ angular.module('ionicGoal.controllers',  [])
     $scope.newsList = newsArray;
   }
   })
-
-
   $scope.pinNews = function(author, title, publishedAt, urlToImage, url){
 
-    if(localStorage.getItem('pinnedNews') == null || localStorage.getItem('pinnedNews') == ""){
+    if(localStorage.getItem('pinnedNews') == null || localStorage.getItem('pinnedNews') == "" || localStorage.getItem('pinnedNews') == "undefined"){
       var newsArray = [];
     }
     else{
       var newsArray = JSON.parse(localStorage.getItem('pinnedNews'));
     }
-
   var data = {
     'author':author,
     'title':title,
@@ -54,36 +52,40 @@ angular.module('ionicGoal.controllers',  [])
   newsArray.push(data);
   localStorage.setItem('pinnedNews', JSON.stringify(newsArray));
   var a = JSON.parse(localStorage.getItem('pinnedNews'));
+  var alertPopup = $ionicPopup.alert({
+    title:'News has been added to Read Later List'
+  });
+  alertPopup.then(function(res){
+    console.log('wew');
+  });
 
   $cordovaDialogs.beep(1);
   $scope.action = "Beep";
-
-  console.log(a);
   }
-
-  $scope.bookmarked = function(){
-    console.log("asd");
-  }
-
-  $scope.alert = function(){
-  console.log("beep");
-  $cordovaDialogs.beep(1);
-  $scope.action = "Beep";
-
-  }
-
-  $scope.beeps = function(){
-
+// delete from Read Later List
+  $scope.delete = function(index){
+    $scope.newsList.splice(index,1)
+    localStorage.setItem('pinnedNews', JSON.stringify($scope.newsArray));
   }
 
 
-  $scope.nextPage = function(id){
-    console.log(id);
-    localStorage.setItem("id_details", id);
-    $state.go('app.addsteppage');
-  }
+  // $scope.alert = function(){
+  // console.log("beep");
+  // $cordovaDialogs.beep(1);
+  // $scope.action = "Beep";
+  // }
+
+// USELESS
+  // $scope.nextPage = function(id){
+  //   console.log(id);
+  //   localStorage.setItem("id_details", id);
+  //   $state.go('app.addsteppage');
+  // }
+
 
   $rootScope.$on('$ionicView.beforeEnter',function(){
+
+    // API DATA
 
         $http({
           url : 'https://newsapi.org/v1/articles?source=mtv-news&sortBy=top&apiKey=c9e03b98399444c9a4e1f1cf36e56419',
@@ -110,127 +112,34 @@ angular.module('ionicGoal.controllers',  [])
             })
 
 
-      var arrayA = localStorage.getItem("goalname");
-      if(arrayA == null || arrayA == '' || arrayA == 'null'){
-        arrayA = [];
-        $scope.readgoal = [];
-
-      }
-      else{
-        $scope.readgoal = JSON.parse(localStorage.getItem("goalname"));
-        arrayA = JSON.parse(localStorage.getItem("goalname"));
-      }
   })
-
-
-  $scope.addname = function(){
-
-      var arrayA = localStorage.getItem("goalname");
-      if(arrayA == null || arrayA == '' || arrayA == 'null'){
-        arrayA = [];
-        $scope.readgoal = [];
-
-      }
-      else{
-        $scope.readgoal = JSON.parse(localStorage.getItem("goalname"));
-        arrayA = JSON.parse(localStorage.getItem("goalname"));
-      }
-
-    var goalname = document.getElementById('addGoal').value;
-    console.log(goalname);
-    var goal = {
-      'goalname': goalname
-
-    }
-    arrayA.push(goal);
-    localStorage.setItem("goalname", JSON.stringify(arrayA));
-
-    $scope.readgoal = JSON.parse(localStorage.getItem("goalname"));
-    console.log(arrayA);
-
-    $scope.addGoal = "";
-    document.getElementById('addGoal').value = "";
-  };
 })
 
-.controller('addStepPage', function($scope, $http, $state){
-
-  var idtitle = localStorage.getItem("id_details");
-  var arrayStep = localStorage.getItem("goalname");
-  if(arrayStep == null || arrayStep == '' || arrayStep == 'null'){
-    arrayStep = [];
-    console.log(arrayStep[idtitle]);
-
-  }
-  else{
-    arrayStep = JSON.parse(localStorage.getItem("goalname"));
-    console.log(arrayStep[idtitle]['goalname']);
-    $scope.gege = arrayStep[idtitle]['goalname'];
-  }
-
-   $scope.delete = function(){
-    arrayStep.splice(idtitle, 1);
-    console.log(arrayStep);
-    localStorage.setItem("goalname",JSON.stringify(arrayStep));
-    $state.go('app.home');
-   }
-
-});
-
-  //----------------add step--------------
-
-  // .controller('addstep', function($scope, $http) {
-
-  // $scope.readgoal = JSON.parse(localStorage.getItem("stepname"));
-
-  // var arrayB = localStorage.getItem("stepname");
-  // if(arrayB == null){
-  //   arrayB = [];
-
-  // }
-  // else{
-  //   arrayB = JSON.parse(localStorage.getItem("stepname"));
-  // }
-  // $scope.stepname = function(){
-
-
-  //   var stepname = $scope.addStep;
-  //   var step = {
-  //     'stepname': stepname
-
-  //   }
-  //   arrayA.push(step);
-  //   localStorage.setItem("stepname", JSON.stringify(arrayB));
-
-  //   $scope.readstep = JSON.parse(localStorage.getItem("stepname"));
-  //   console.log(arrayB);
-
-  //   $scope.addStep = "";
-  // };
-
-
-    // $http({
-    //   url:"http://localhost/room/php/add.php",
-    //   method:"POST",
-    //   data: {
-    //     'goalname': goalname,
-    //   }
-    // })
-    // .then(function(response){
-    //   console.log(response);
-    // })
-  //};
-
-
-// setInterval(function(){
-//   $http({
-//       url:"http://localhost/room/php/getdata.php",
-//       method:"GET"
-//     })
-//     .then(function(response){
-
-
-//       $scope.readgoal = response['data'];
-//     })
-
-// },500);
+// $scope.addname = function(){
+//
+//     var arrayA = localStorage.getItem("goalname");
+//     if(arrayA == null || arrayA == '' || arrayA == 'null'){
+//       arrayA = [];
+//       $scope.readgoal = [];
+//
+//     }
+//     else{
+//       $scope.readgoal = JSON.parse(localStorage.getItem("goalname"));
+//       arrayA = JSON.parse(localStorage.getItem("goalname"));
+//     }
+//
+//   var goalname = document.getElementById('addGoal').value;
+//   console.log(goalname);
+//   var goal = {
+//     'goalname': goalname
+//
+//   }
+//   arrayA.push(goal);
+//   localStorage.setItem("goalname", JSON.stringify(arrayA));
+//
+//   $scope.readgoal = JSON.parse(localStorage.getItem("goalname"));
+//   console.log(arrayA);
+//
+//   $scope.addGoal = "";
+//   document.getElementById('addGoal').value = "";
+// };

@@ -1,0 +1,40 @@
+<ion-view ng-controller="channel">
+  <ion-content>
+   <div>
+
+    <div class="list list-inset" >
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Search" ng-model="search">
+        </label>
+    </div>
+
+    <div class="list card" ng-repeat="y in espn | filter:search | orderBy: '-publishedAt'">
+
+
+      <div class="item item-avatar">
+        <img src="https://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/052016/untitled-1_242.png?itok=vy3l2HxD">
+        <h2>{{y.author}}</h2>
+        <p>{{y.title}}</p>
+        <p>{{y.publishedAt}}</p>
+      </div>
+
+      <div class="item item-image">
+        <img src="{{y.urlToImage}}">
+      </div>
+
+      <a class="item item-icon-left calm" href="{{y.url}}">
+        <i class="icon ion-more ion-icon-small"></i>
+        Read article
+      </a>
+      <button class="item item-icon-left calm" ng-click="pinNews(y.author, y.title, y.publishedAt, y.urlToImage, y.url)" >
+        <i class="icon ion-pin ion-icon-small" style="font-size18px;"></i>
+      </button>
+
+    </div>
+
+
+    <br><br><br>
+  </div>
+  </ion-content>
+</ion-view>

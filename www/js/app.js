@@ -14,11 +14,27 @@ $stateProvider
     }
   }
 })
-.state('app.view',{
-  url:'/view',
+.state('app.mtvnews',{
+  url:'/mtvnews',
   views:{
     'menuContent':{
-      templateUrl:'templates/view.html',
+      templateUrl:'templates/mtvnews.html',
+    }
+  }
+})
+.state('app.espn',{
+  url:'/espn',
+  views:{
+    'menuContent':{
+      templateUrl:'templates/espn.html',
+    }
+  }
+})
+.state('app.wsj',{
+  url:'/wsj',
+  views:{
+    'menuContent':{
+      templateUrl:'templates/wsj.html',
     }
   }
 })
@@ -46,6 +62,6 @@ $stateProvider
     }
   }
 });
-  
+
   $urlRouterProvider.otherwise('/app/home');
 })
